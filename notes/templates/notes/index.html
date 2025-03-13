@@ -1,0 +1,54 @@
+{% extends "notes/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- <form method="post">
+    {% csrf_token %}
+  <label for="titulo">Título</label>
+  <input id="titulo" type="text" name="titulo" />
+  <label for="detalhes">Detalhes</label>
+  <textarea id="detalhes" name="detalhes"></textarea>
+  <input type="submit" />
+</form> -->
+
+
+<main class="container">
+  
+  <form class="form-card" method="post">
+    {% csrf_token %}
+    <input
+      id = "titulo"
+      class="form-card-title"
+      type="text"
+      name="titulo"
+      placeholder="Título"
+    />
+    <textarea
+      id = "detalhes"
+      class="autoresize"
+      name="detalhes"
+      placeholder="Digite o conteúdo..."
+    ></textarea>
+    <button class="btn" type="submit">Criar</button>
+  </form>
+  
+  <div class="card-container">
+      {% for note in notes %}
+      <div class="card">
+        <h3 class="card-title">{{note.title}}</h3>
+        <div class="card-content">
+          <p>{{note.content}}</p>
+        </div>
+        <div class="card-actions">
+          <a href="/update/{id}" class="edit-icon">✏️</a>
+          <a href="/delete/{id}" class="delete-icon">🗑️</a>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+</main>
+
+<script type="text/javascript" src="{% static 'notes/scripts/getit.js' %}"></script>
+
+{% endblock %}
