@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Note
+from .models import Note, Tag
 
 def index(request):
     if request.method == 'POST':
@@ -32,3 +32,7 @@ def update(request, id):
 
     elif request.method == 'GET':
         return render(request, 'notes/update.html', {'note': nota})
+    
+def tags(request):
+    tags = Tag.objects.all()
+    return render(request, 'notes/tags.html', {'tags': tags})

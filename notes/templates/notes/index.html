@@ -44,6 +44,11 @@
           <a href="/update/{{note.id}}" class="edit-icon">✏️</a>
           <a href="/delete/{{note.id}}" class="delete-icon">🗑️</a>
         </div>
+        <div class="card-footer">
+          {% if note.tags %}
+          <a href="/tags/{{note.tag.id}}" class="tag-nota">{{ note.tag.name }}</a>
+          {% endif %}
+        </div>
       </div>
       {% endfor %}
   </div>
