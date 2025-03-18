@@ -41,8 +41,8 @@
           <p>{{note.content}}</p>
         </div>
         <div class="card-actions">
-          <a href="/update/{id}" class="edit-icon">✏️</a>
-          <a href="/delete/{id}" class="delete-icon">🗑️</a>
+          <a href="/update/{{note.id}}" class="edit-icon">✏️</a>
+          <a href="/delete/{{note.id}}" class="delete-icon">🗑️</a>
         </div>
       </div>
       {% endfor %}
